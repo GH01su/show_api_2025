@@ -1,0 +1,167 @@
+/* button設定 */
+.btn {
+    background-color: lightskyblue;
+    width:120px;
+    height:50px;
+} 
+nav {
+    background-color:#bbf1f1;      /* 導覽列背景色 */
+    padding: 10px 50px;             /* 上下10px、左右50px */
+    display: flex;                  /* 使用 flex 將 logo 與選單排成橫向兩欄 */
+    justify-content: space-between;/* 兩邊分散排列，logo靠左，選單靠右 */
+    align-items: center;           /* 垂直置中對齊 */
+}
+
+/* 網站標題樣式 */
+#logo {
+    width: 25%;
+    height: 25%;
+}
+/* nav .logo {
+    font-size: 24px;               字體大小為 24px
+    font-weight: bold;            使用粗體
+    margin: 10px 20px;            上下10px、左右20px
+} */
+/* 導覽列的列表設定 */
+nav ul {
+    list-style-type: none;        /* 移除項目符號（點點） */
+    display: flex;                /* 將選單橫向排列 */
+    justify-content: flex-end;   /* 將選單靠右排列 */
+    margin: 0;                    /* 移除外距 */
+    padding: 0;                   /* 移除內距 */
+    letter-spacing: 2px;          /* 字與字間距 */
+}
+/* 每一個選單項目的間距 */
+nav li {
+    margin-right: 5px;           /* 每個選單右邊間隔 5px */
+}
+/* 超連結樣式 */
+nav a {
+    text-decoration: none;        /* 移除底線 */
+    font-weight: bold;           /* 使用粗體 */
+    padding: 12px 12px;            /* 增加點擊區域的內距 */
+    transition: background-color 0.5s; /* 滑鼠移過背景變化動畫 0.5秒 */
+}
+/* 滑鼠移過連結時效果 */
+nav li a:hover {
+    background-color: #e9d0fd;       /* 背景變色 */
+    border-radius: 10px;           /* 圓角 10px */
+}
+/* 表格 */
+table,tr,td {
+    vertical-align: middle;
+    text-align: center;
+}
+iframe {border: 0;}
+
+/* 頁尾樣式 */
+footer ul {
+    list-style: none;   /* 取消符號樣式 */
+}
+footer a {
+    text-decoration: none;  /* 取消超連結的底線 */
+    color: inherit; /* 繼承父元素的顏色 */
+}
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px 20px;
+    border-top: 5px solid #007bff; /* 一條藍色邊線，增加設計感 */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* 讓區塊在小螢幕上換行 */
+    justify-content: space-around; /* 讓區塊分佈更均勻 */
+    max-width: 1200px; /* 限制最大寬度 */
+    margin: 0 auto; /* 居中對齊 */
+    gap: 30px; /* 區塊之間的間距 */
+}
+
+.footer-section {
+    flex: 1; /* 讓每個區塊平均分配空間 */
+    min-width: 250px; /* 最小寬度，避免在小螢幕下過窄 */
+    margin-bottom: 20px; /* 區塊底部間距 */
+}
+
+.footer-section h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.footer-section p, .footer-section li {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    transition: color 0.3s ease; /* 平滑過渡效果 */
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 頁腳底部版權和社群連結 */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #555;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column; /* 預設垂直排列 */
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block; /* 確保圖片正確顯示 */
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px; /* 輕微圓角 */
+    vertical-align: middle; /* 垂直對齊 */
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* 在小螢幕上垂直堆疊 */
+        align-items: center; /* 居中對齊 */
+    }
+
+    .footer-section {
+        min-width: unset; /* 移除最小寬度限制 */
+        width: 90%; /* 佔據較大寬度 */
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* 保持垂直堆疊 */
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 30px 15px 15px;
+    }
+    .footer-section h3 {
+        font-size: 1.1em;
+    }
+    .footer-section p, .footer-section li {
+        font-size: 0.85em;
+    }
+}

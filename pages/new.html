@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最新消息</title>
+  <!-- <link rel="stylesheet" type="text/css" href="../CSS/index.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    h1 {
+      margin: 16px 0;
+    }
+    h5, p {
+      color: black;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <center>
+    <nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html" target="_parent">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">最新消息</li>
+      </ol>
+    </nav>
+    <div style="width: 900px; height: 300px; overflow: hidden;">
+      <div id="carouselExampleAutoplaying" class="carousel slide h-100" data-bs-ride="carousel">
+        <div class="carousel-inner h-100">
+          <div class="carousel-item active h-100">
+            <img src="../images/carousel_01.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>海景示意圖</h5>
+              <p>夕陽下的海灘</p>
+            </div>
+          </div>
+          <div class="carousel-item h-100">
+            <img src="../images/carousel_02.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>山景示意圖</h5>
+              <p>山林間的花海</p>
+            </div>
+          </div>
+        </div>
+        <!-- 左右控制按鈕 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <hr>
+    <h4>最新消息</h4>
+    <div class="d-flex flex-column" style="width: 60%;">
+      <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#theModal2025">2025年 公告</button>
+      <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#theModal2024">2024年 公告</button>
+      <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#theModal2023">2023年 公告</button>
+    </div>
+    <!-- The Modal : theModal2025 -->
+    <div class="modal" id="theModal2025">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">2025年 公告</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            2025年:1234
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal : theModal2024 -->
+    <div class="modal" id="theModal2024">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">2024年 公告</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            2024年:2468
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal : theModal2023 -->
+    <div class="modal" id="theModal2023">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">2023年 公告</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            2023年:369
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </center>
+</body>
+</html>

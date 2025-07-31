@@ -1,0 +1,200 @@
+<!-- 使用 accordion 實作的版本： -->
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Q & A </title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="p-4">
+<center>
+    <nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html" target="_parent">首頁</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Q & A </li>
+        </ol>
+    </nav>
+    <!-- class="my-3" => y：垂直方向（top + bottom） ； m：margin ； p 代表：padding -->
+    <h1 class="my-3"> Q & A </h1>
+    <div style="width: 70%;" class="my-3">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                     Q & A #01 : 將進酒
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·李白</strong>
+<pre>君不見，黃河之水天上來，奔流到海不復回。
+君不見，高堂明鏡悲白髮，朝如青絲暮成雪。
+人生得意須盡歡，莫使金樽空對月。
+天生我材必有用，千金散盡還復來。
+烹羊宰牛且為樂，會須一飲三百杯。
+岑夫子，丹丘生，將進酒，杯莫停。
+與君歌一曲，請君為我傾耳聽。
+
+鐘鼓饌玉不足貴，但願長醉不復醒。
+古來聖賢皆寂寞，惟有飲者留其名。
+陳王昔時宴平樂，鬥酒十千恣歡謔。
+主人何為言少錢，徑須沽取對君酌。
+五花馬，千金裘，呼兒將出換美酒，與爾同銷萬古愁。</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                     Q & A #02 : 春日醉起言志
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·李白</strong>
+<pre>處世若大夢，胡為勞其生？
+所以終日醉，頽然臥前楹。
+覺來眄庭前，一鳥花間鳴。
+借問此何時？春風語流鶯。
+感之慾嘆息，對酒還自傾。
+浩歌待明月，曲盡已忘情。</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                     Q & A #03 : 問劉十九
+                </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·白居易</strong>
+<pre>綠蟻新醅酒，紅泥小火爐。
+晚來天欲雪，能飲一杯無？</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                     Q & A #04 : 涼州詞
+                </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·王翰</strong>
+<pre>葡萄美酒夜光杯，欲飲琵琶馬上催。
+醉臥沙場君莫笑，古來征戰幾人回？</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                     Q & A #05 : 月下獨酌
+                </button>
+                </h2>
+                <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·李白</strong>
+<pre>花間一壺酒，獨酌無相親。
+舉杯邀明月，對影成三人。
+月既不解飲，影徒隨我身。
+暫伴月將影，行樂須及春。
+我歌月徘徊，我舞影零亂。
+醒時同交歡，醉後各分散。
+永結無情游，相期邈雲漢。</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                     Q & A #06 : 遣懷
+                </button>
+                </h2>
+                <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·杜牧</strong>
+<pre>落魄江南載酒行，楚腰纖細掌中輕。
+十年一覺揚州夢，贏得青樓薄倖名。</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                     Q & A #07 : 送元二使安西
+                </button>
+                </h2>
+                <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>唐·王維</strong>
+<pre>渭城朝雨浥輕塵，客舍青青柳色新。
+勸君更盡一杯酒，西出陽關無故人。</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                     Q & A #08 : 破陣子·爲陳同甫賦壯詞以寄之
+                </button>
+                </h2>
+                <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>宋·辛棄疾</strong>
+<pre>醉裏挑燈看劍，夢迴吹角連營。
+八百里分麾下炙，五十弦翻塞外聲。
+沙場秋點兵。
+馬作的盧飛快，弓如霹靂弦驚。
+了卻君王天下事，贏得生前身後名。
+可憐白髮生。</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                     Q & A #09 : 聲聲慢
+                </button>
+                </h2>
+                <div id="collapse9" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>宋·李清照</strong>
+<pre>尋尋覓覓，冷冷清清，淒悽慘慘慼慼。
+乍暖還寒時候，最難將息。
+三杯兩盞淡酒，怎敵他、晚來風急？
+雁過也，正傷心，卻是舊時相識。
+滿地黃花堆積。
+憔悴損，如今有誰堪摘？
+守著窗兒，獨自怎生得黑？
+梧桐更兼細雨，到黃昏、點點滴滴。
+這次第，怎一個愁字了得！</pre>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                     Q & A #10 : 如夢令昨夜雨疏風驟
+                </button>
+                </h2>
+                <div id="collapse10" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>宋·李清照</strong>
+<pre>昨夜雨疏風驟，濃睡不消殘酒。
+試問捲簾人，卻道海棠依舊。
+知否，知否？應是綠肥紅瘦。</pre>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+</body>
+</html>

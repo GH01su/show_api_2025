@@ -1,0 +1,157 @@
+<!-- 改後的 Bootstrap Tabs + 卡片版影片播放器： -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>影音資訊</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="p-4">
+  <nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="../index.html" target="_parent">首頁</a></li>
+      <li class="breadcrumb-item active" aria-current="page">影音資訊</li>
+    </ol>
+  </nav>
+
+  <!-- 導覽標籤區 -->
+  <ul class="nav nav-tabs mb-3" id="videoTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="video1-tab" data-bs-toggle="tab" data-bs-target="#video1" type="button" role="tab">紙扎神探</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="video2-tab" data-bs-toggle="tab" data-bs-target="#video2" type="button" role="tab">穿越古代</button>
+    </li>
+  </ul>
+
+  <!-- 卡片內容區 -->
+  <div class="tab-content" id="videoTabContent">
+    
+    <!-- 第一組影片 -->
+    <div class="tab-pane fade show active" id="video1" role="tabpanel" aria-labelledby="video1-tab">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/iAWfnwKAP-U?si=qpXLo0xg3KwenfLQ" title="紙扎神探【1-113】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">紙扎神探【1-113】</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/ogsNmr-b4Fw?si=sMUqLEiALyWjWDgi" title="紙扎神探【114-134】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">紙扎神探【114-134】</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/U17gbEV5-iA?si=COJKDvbaHmY1r0z9" title="紙扎神探【135-153】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">紙扎神探【135-153】</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/OwrCT5n26IA?si=dKirY2Bt6SUSv-OH" title="紙扎神探【1】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">紙扎神探【1】</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/Wwls0O_2fEE?si=lymVV2tOmUYuz6u0" title="紙扎神探【2】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">紙扎神探【2】</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/Rmrqf1dRccw?si=3BaoniJaQNlQ9e6F" title="紙扎神探【3】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">紙扎神探【3】</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第二組影片 -->
+    <div class="tab-pane fade" id="video2" role="tabpanel" aria-labelledby="video2-tab">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/r3R1jgPrXZI?si=nQt6ZozOTT430W23" title="【今穿古，帶著老媽二人闖古代】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">今穿古，帶著老媽二人闖古代</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/PdXzMVWoo5I?si=V_5m7vurVNI7q4ZZ" title="【全村被屠前，她帶著全村提前逃荒】" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">全村被屠前，她帶著全村提前逃荒</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <iframe class="card-img-top" width="100%" height="210" src="https://www.youtube.com/embed/JqgjtrlkpO8?si=K5yja8UD91aKGZ6E" title="《我靠擺爛拯救了全宗門》" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h6 class="card-title">我靠擺爛拯救了全宗門</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
+<!-- 原始版本： -->
+<!-- <!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT影音</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+</head>
+<body>
+<center>
+<h1>YT影音</h1>
+<table>
+    <tr style="height: 40px;">
+        <td>纸扎神探【1-113】</td>
+        <td>纸扎神探【114-134】</td>
+        <td>纸扎神探【135-153】</td>
+    </tr>
+    <tr>
+        <td><iframe width="350" height="210" src="https://www.youtube.com/embed/iAWfnwKAP-U?si=qpXLo0xg3KwenfLQ" title="纸扎神探【1-113】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        <td><iframe width="350" height="210" src="https://www.youtube.com/embed/ogsNmr-b4Fw?si=sMUqLEiALyWjWDgi" title="纸扎神探【114-134】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        <td><iframe width="350" height="210" src="https://www.youtube.com/embed/U17gbEV5-iA?si=COJKDvbaHmY1r0z9" title="纸扎神探【135-153】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+    </tr>
+    <tr style="height: 40px;">
+        <td>【今穿古，帶著老媽二人闖古代】</td>
+        <td>【全村被屠前，她带着全村提前逃荒】</td>
+        <td>《我靠擺爛拯救了全宗門》</td>
+    </tr>
+    <tr>
+        <td><iframe width="350" height="210" src="https://www.youtube.com/embed/r3R1jgPrXZI?si=nQt6ZozOTT430W23" title="【今穿古，帶著老媽二人闖古代】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        <td><iframe width="350" height="210" src="https://www.youtube.com/embed/PdXzMVWoo5I?si=V_5m7vurVNI7q4ZZ" title="【全村被屠前，她带着全村提前逃荒】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+        <td><iframe width="350" height="210" src="https://www.youtube.com/embed/JqgjtrlkpO8?si=K5yja8UD91aKGZ6E" title="《我靠擺爛拯救了全宗門》" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+    </tr>
+</table>
+</center>
+</body>
+</html> -->

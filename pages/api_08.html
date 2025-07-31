@@ -1,0 +1,87 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../CSS/api.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/Resume/ResumeData_Plus.aspx?IsTransData=1&UnitId=063<br><hr>
+<table border=1 width="95%">
+    <caption><h1>產銷履歷</h1></caption>
+    <colgroup>
+        <col span="10" width="10%">
+    </colgroup>
+    <!-- <tr><th colspan="10" id="theDatalength"></th></tr> -->
+    <tr>
+        <th>追蹤碼</th>
+        <th>農民經營業者</th>
+        <th>組織代碼</th>
+        <th>產品名稱</th>
+        <th>產地</th>
+        <th>生產者名稱</th>
+        <th>包裝日期</th>
+        <th>驗證機構</th>
+        <th>驗證有效日期</th>
+        <th>資料更新時間</th>
+    </tr>
+     <tbody id="row"></tbody>
+</table>
+
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://data.moa.gov.tw/Service/OpenData/Resume/ResumeData_Plus.aspx?IsTransData=1&UnitId=063',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                // //-1
+                // console.log(theData);
+                // console.log(theData[0]);
+                console.log(theData.length);
+                // $("#theDatalength").append(theData.length);
+                //-2
+                theData.forEach(element => {
+                    // console.log(element);
+                    row=`
+                    <tr>
+                        <td>${element.Tracecode}</td>
+                        <td>${element.Producer}</td>
+                        <td>${element.OrgID}</td>
+                        <td>${element.ProductName}</td>
+                        <td>${element.Place}</td>
+                        <td>${element.FarmerName}</td>
+                        <td>${element.PackDate}</td>
+                        <td>${element.CertificationName}</td>
+                        <td>${element.ValidDate}</td>
+                        <td>${element.Log_UpdateTime}</td>
+                    </tr>`;
+                    $("#row").append(row);
+                });
+            },
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

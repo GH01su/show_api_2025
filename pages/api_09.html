@@ -1,0 +1,93 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/api.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        /* PDF連結樣式 */
+        a.customLink {
+            display: inline-block;         /* 讓 padding 和圓角生效 */
+            padding: 4px 25px;             /* 內距 */
+            background-color: #e0f0ff;     /* 底色 */
+            color: #0066cc;                /* 字體顏色 */
+            text-decoration: none;         /* 移除底線 */
+            border-radius: 8px;            /* 圓角 */
+            transition: background-color 0.3s, color 0.3s; /* 漸變效果 */
+        }
+        a.customLink:hover {
+            background-color: #0066cc;  /* 懸停時改變背景顏色 */
+            color: #ffffff;             /* 懸停時改變文字顏色 */
+        }
+    </style>
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=F89&IsTransData=1<br><hr>
+<table border=1 width="90%">
+    <caption><h1>臺中場病蟲警報發生資料</h1></caption>
+    <colgroup>
+        <col span="2" width="10%">
+        <col span="1" width="70%">
+        <col span="1" width="10%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>提供年度</th>
+            <th>發布日期</th>
+            <th>名稱</th>
+            <th>PDF</th>
+        </tr>
+    </thead>
+    <tbody id="row"></tbody>
+</table>
+
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://data.moa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=F89&IsTransData=1',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                // //-1
+                // console.log(theData);
+                // console.log(theData[0]);
+                // console.log(theData.length);
+                //-2
+                theData.forEach(element => {
+                    // console.log(element);
+                    row=`
+                    <tr>
+                        <td>${element.年度}</td>
+                        <td>${element.發布日期}</td>
+                        <td style="text-align: left;padding-left: 10px;">${element.名稱}</td>
+                        <td><a href="${element.網址}" class="customLink" target="_blank">PDF</a></td>
+                    </tr>`;
+                    $("#row").append(row);
+                });
+            },
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

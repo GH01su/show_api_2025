@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../CSS/index.css"> -->
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        p {
+            font-size: x-large;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        /* .divLeft {background-color: aqua;}
+        .divCenter {background-color: blueviolet;}
+        .divRight {background-color: aquamarine;}
+        .p-3, .abc {background-color: red;}
+        .abc{margin: 20px auto;} */
+        label {
+            margin: 5px 10px;
+        }
+        .py-3 {
+            background-color: lightskyblue;
+            border-radius: 15px;
+            margin: 1px 3px;
+        }
+    </style>
+</head>
+<body class="p-4"> 
+<center>
+<!-- 麵包屑 -->
+<nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html" target="_parent">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">聯絡我們</li>
+    </ol>
+</nav>
+<!-- class="my-3" => y：垂直方向（top + bottom） ； m：margin ； p 代表：padding -->
+<h2 class="my-3">聯絡我們</h4>
+<div class="container overflow-hidden text-center">
+    <!-- 寬度比例 1:2（左 4 格，右 8 格） -->
+    <div class="row gx-1">
+        <div class="col-4 divLeft">  <!-- 訊息: 佔 4 格 -->
+            <div class="py-3">
+                <h4 class="my-3">聯絡訊息</h4>
+                <table>
+                    <tr>
+                        <td><img src="../images/a_Phone.png" alt="電話"></td>
+                        <td><p>(09)8765-4321</p></td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/a_Map.png" alt="地址"></td>
+                        <td><p>範本市範本區範本路00號</p></td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/a_Email.gif" alt="Email"></td>
+                        <td><p>example@example.com</p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-8 divRight"> <!-- 地圖: 佔 8 格 -->
+            <div class="py-3">
+                <h4 class="my-3">google 地圖</h4>
+                <iframe width="675" height="150" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1544.1898044402865!2d120.21369327925676!3d22.997211161582875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768cf38caa09%3A0xc3e9a28e4fd2ac46!2z5Y-w5Y2X6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1750868998561!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- 表單內容 -->
+    <div class="row gy-5 abc"> 
+        <!-- (3)版 -->
+        <form class="contact-form" action="backForm.py" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend><h4 class="my-3">回饋表單</h4></legend>
+            <div class="d-flex justify-content-around">
+            <div class="col-5 divLeft py-3">
+                <label for="user_phone"><span style="color:red;">*</span>電話:</label>
+                <input type="tel" id="user_phone" name="user_phone" placeholder="請輸入電話號碼" required><br>
+
+                <label for="user_mail"><span style="color:red;">*</span>E-mail:</label>
+                <input type="email" id="user_mail" name="user_mail" placeholder="請輸入E-mail" required><br>
+
+                <label for="user_address">住址:</label>
+                <input type="text" id="user_address" name="user_address" size="30" maxlength="30" placeholder="請輸入住址"><br>
+
+                <label>季節:</label>
+                <label><input type="checkbox" value="spring" name="season[]">春季</label>
+                <label><input type="checkbox" value="summer" name="season[]">夏季</label>
+                <label><input type="checkbox" value="autumn" name="season[]">秋季</label>
+                <label><input type="checkbox" value="winter" name="season[]">冬季</label><br>
+
+                <label for="my_file" class="form-label">請上傳檔案:</label>
+                <input type="file" id="user_file" name="user_file"><br>
+
+                <label for="profile_pic">請上傳圖片:</label>
+                <input type="file" id="user_file_pic" name="user_file_pic" accept=".jpg, .jpeg, .png"><br>
+            </div>
+            <div class="col-3 divCenter py-3">
+                <label>性別:</label>
+                <input type="radio" id="gender_male" name="gender" value="1" checked><label for="gender_male">男生</label>
+                <input type="radio" id="gender_female" name="gender" value="2"><label for="gender_female">女生</label><br>
+
+                <label for="usercolor">顏色:</label>
+                <input type="color" id="user_color" name="user_color" value="#FF0000"><br>
+                
+                <label for="select_1">婚姻狀況:</label>
+                <select id="select_1" name="select_1">
+                    <option value="0">請選擇</option>
+                    <option value="1">已婚</option>
+                    <option value="2">單身</option>
+                </select><br>
+
+                <label for="mydatetime">日期、時間:</label>
+                <input type="datetime-local" id="user_datetime" name="user_datetime"><br>
+            </div>
+            <div class="col-4 divRight py-3">
+                <div class="my-3">
+                    <label for="comment">其他建議:</label><br>
+                    <textarea id="comment" name="comment" cols="30" rows="6" maxlength="500"></textarea><br>
+                </div>
+            </div>
+        </div>
+            <input type="submit" value="提交" class="btn btn-primary px-5 py-2 m-2">
+            <input type="reset" value="重設" class="btn btn-primary px-5 py-2 m-2">
+            <!-- <input type="button" value="Click me" class="btn btn-primary px-5 py-3" onclick="alert('已收到您的回饋!')"> -->
+        </fieldset>
+        </form>
+    </div>
+</div>
+</center>
+</body>
+</html>

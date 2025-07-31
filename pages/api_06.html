@@ -1,0 +1,79 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/api.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        img {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/TaipeiFlowerLotosPond.aspx?IsTransData=1&UnitId=146<br><hr>
+<table border=1 width="90%">
+    <caption><h1>台北植物園荷花池大景照片</h1></caption>
+    <colgroup>
+        <col width="10%">
+        <col width="15%">
+        <col width="75%">
+    </colgroup>
+    <tr>
+        <th>照片序號</th>
+        <th>拍攝日期</th>
+        <th>照片</th>
+    </tr>
+     <tbody id="row"></tbody>
+</table>
+
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://data.moa.gov.tw/Service/OpenData/TaipeiFlowerLotosPond.aspx?IsTransData=1&UnitId=146',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                // //-1
+                // console.log(theData);
+                // console.log(theData[0]);
+                // console.log(theData.length);
+                //-2
+                theData.forEach(element => {
+                    // console.log(element);
+                    row=`
+                    <tr>
+                        <td>${element.sn}</td>
+                        <td>${element.info1}</td>
+                        <td><img src="${element.info2}" width="90%" height="80%"></td>
+                    </tr>`;
+                    $("#row").append(row);
+                });
+            },
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

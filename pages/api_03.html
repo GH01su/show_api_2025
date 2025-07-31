@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../CSS/api.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<center>
+API來源 : https://soa.tainan.gov.tw/Api/Service/Get/49f1bd12-7724-4344-8134-9a07f9dacade<br><hr>
+<table border=1 width="95%">
+    <caption><h1>臺南市104年蘇迪勒颱風農產業救助資料_各區天然災害救助統計資料</h1></caption>
+    <tr>
+        <th>區名</th>
+        <th>申請總筆數</th>
+        <th>申請總面積</th>
+        <th>核定總筆數</th>
+        <th>核定總面積</th>
+        <th>核定總金額</th>
+    </tr>
+	<tbody id="row">
+		
+	</tbody>
+
+</table>
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://soa.tainan.gov.tw/Api/Service/Get/49f1bd12-7724-4344-8134-9a07f9dacade',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                // //-1
+                // console.log(theData);
+                // console.log(theData.data.length);
+                // console.log(theData.data[0].區名);
+                // console.log(theData.data[0].申請總筆數);
+                // console.log(theData.data[0].申請總面積);
+                // console.log(theData.data[0].核定總筆數);
+                // console.log(theData.data[0].核定總面積);
+                // console.log(theData.data[0].核定總金額);
+                //-2
+                theData.data.forEach(element => {
+                    row=`
+                    <tr>
+                        <td>${element.區名}</td>
+                        <td>${element.申請總筆數}</td>
+                        <td>${element.申請總面積}</td>
+                        <td>${element.核定總筆數}</td>
+                        <td>${element.核定總面積}</td>
+                        <td>${element.核定總金額}</td>
+                    </tr>`;
+                    $("#row").append(row);
+                });
+
+                // //-1
+                // console.log(data[0]);
+                // console.log(data[0].seq);
+                // console.log(data[0].donateNm);
+                // console.log(data[0].donateCode);
+                // console.log(data[0].donateShortNm);
+                // console.log(data[0].donateBan);
+                // console.log(data[0].hsnNm);
+                // //-2
+                // data.forEach(element => {
+                //     row=`
+                //     <tr>
+                //         <td>${element.seq}</td>
+                //         <td>${element.donateNm}</td>
+                //         <td>${element.donateCode}</td>
+                //         <td>${element.donateShortNm}</td>
+                //         <td>${element.donateBan}</td>
+                //         <td>${element.hsnNm}</td>
+                //     </tr>`;
+                //     $("#row").append(row);
+                // });
+            },
+            //-1
+            // error: function(e){
+            //     console.log("失敗");
+            //     console.log(e);
+            // }
+            //-2
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

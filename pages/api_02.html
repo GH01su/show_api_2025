@@ -1,0 +1,374 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../CSS/api.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <style>
+    th {
+        background-color: lightskyblue;
+    }
+    td {
+        background-color: lightpink;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .btnA {
+        width: 100px;
+        height: 40px;
+        margin: 15px 5px 10px;
+    }
+    .btnB {
+        width: 100px;
+        margin: 1px 5px;
+    }
+</style> -->
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=LC7YWlenhLuP<br><hr>
+    <a href="#row001"><button class="btnA">稻米類</button></a>
+    <a href="#row002"><button class="btnA">蔬菜類</button></a>
+    <a href="#row003"><button class="btnA">果樹類</button></a>
+    <a href="#row004"><button class="btnA">花卉類</button></a>
+    <a href="#row005"><button class="btnA">雜糧類</button></a>
+    <a href="#row006"><button class="btnA">特用作物類</button></a>
+    <a href="#row007"><button class="btnA">農產品加工類</button></a>
+    <a href="#row010"><button class="btnA">其他作物類</button></a>
+    <br>
+<table border=1 width="95%">
+    <caption><h1>農作物統一名稱與代碼</h1></caption>
+    <colgroup>
+        <col span="2" width="13%">
+        <col span="1" width="9%">
+        <col span="1" width="5%">
+        <col span="1" width="9%">
+        <col span="1" width="5%">
+        <col span="1" width="9%">
+        <col span="1" width="5%">
+        <col span="1" width="9%">
+        <col span="1" width="5%">
+        <col span="1" width="9%">
+        <col span="1" width="5%">
+        <col span="1" width="4%">
+    </colgroup>
+    <tr>
+        <th colspan="2">農作物</th>
+        <th colspan="2">分類一</th>
+        <th colspan="2">分類二</th>
+        <th colspan="2">科類</th>
+        <th colspan="2">粗分類</th>
+        <th colspan="2">細分類</th>
+        <th rowspan="2">代碼</th>
+    </tr>
+    <tr>
+        <th>總名稱</th>
+        <th>總代碼</th>
+        <th>名稱</th>
+        <th>代碼</th>
+        <th>名稱</th>
+        <th>代碼</th>
+        <th>名稱</th>
+        <th>代碼</th>
+        <th>名稱</th>
+        <th>代碼</th>
+        <th>名稱</th>
+        <th>代碼</th>
+    </tr>
+	<tbody id="row001">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_稻米類</th>
+	</tbody>
+	<tbody id="row002">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-*</th>
+	</tbody>
+	<tbody id="row00201">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-葉菜類</th>
+	</tbody>
+	<tbody id="row00202">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-鱗莖類</th>
+	</tbody>
+	<tbody id="row00203">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-莖菜類</th>
+	</tbody>
+	<tbody id="row00204">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-根菜類</th>
+	</tbody>
+	<tbody id="row00205">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-花菜類</th>
+	</tbody>
+	<tbody id="row00206">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-豆菜類</th>
+	</tbody>
+	<tbody id="row00207">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-瓜菜類</th>
+	</tbody>
+	<tbody id="row00208">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-果菜類</th>
+	</tbody>
+	<tbody id="row00209">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-芽菜類</th>
+	</tbody>
+	<tbody id="row00210">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_蔬菜類-菇蕈類</th>
+	</tbody>
+	<tbody id="row003">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button>分類一_果樹類-*</th>
+	</tbody>
+	<tbody id="row00301">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_果樹類-柑橘類</th>
+	</tbody>
+	<tbody id="row00302">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_果樹類-漿果類</th>
+	</tbody>
+	<tbody id="row00303">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_果樹類-仁果類</th>
+	</tbody>
+	<tbody id="row00304">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_果樹類-核果類</th>
+	</tbody>
+	<tbody id="row00305">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_果樹類-堅果類</th>
+	</tbody>
+	<tbody id="row004">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_花卉類-*</th>
+	</tbody>
+	<tbody id="row00401">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_花卉類-蘭花類</th>
+	</tbody>
+	<tbody id="row00402">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_花卉類-一二年生草本類</th>
+	</tbody>
+	<tbody id="row00403">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_花卉類-木本花卉類</th>
+	</tbody>
+	<tbody id="row00404">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_花卉類-多年生草本類</th>
+	</tbody>
+	<tbody id="row00405">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_花卉類-其他花卉類</th>
+	</tbody>
+	<tbody id="row005">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_雜糧類</th>
+	</tbody>
+	<tbody id="row006">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_特用作物類</th>
+	</tbody>
+	<tbody id="row007">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_農產品加工類</th>
+	</tbody>
+	<tbody id="row010">
+		<th colspan="13"><a href="#"><button class="btnB">回頁首</button></a>分類一_其他作物類</th>
+	</tbody>
+</table>
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(e){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=LC7YWlenhLuP',
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                // //-1
+                // console.log(data);
+                // console.log(data.length);
+                // console.log(data[0].CNAME);
+                // console.log(data[0].CROP_UID);
+                // console.log(data[0].PLV1_NAME);
+                // console.log(data[0].PLV1);
+                // console.log(data[0].PLV2_NAME);
+                // console.log(data[0].PLV2);
+                // console.log(data[0].PLV5_NAME);
+                // console.log(data[0].PLV5);
+                // console.log(data[0].PLV3_NAME);
+                // console.log(data[0].PLV3);
+                // console.log(data[0].PLV4_NAME);
+                // console.log(data[0].PLV4);
+                // console.log(data[0].PLV6);
+                //-2
+                data.forEach(element => {
+                    row=`<tr>
+                            <td>${element.CNAME}</td>
+                            <td>${element.CROP_UID}</td>
+                            <td>${element.PLV1_NAME}</td>
+                            <td>${element.PLV1}</td>
+                            <td>${element.PLV2_NAME}</td>
+                            <td>${element.PLV2}</td>
+                            <td>${element.PLV5_NAME}</td>
+                            <td>${element.PLV5}</td>
+                            <td>${element.PLV3_NAME}</td>
+                            <td>${element.PLV3}</td>
+                            <td>${element.PLV4_NAME}</td>
+                            <td>${element.PLV4}</td>
+                            <td>${element.PLV6}</td>
+                        </tr>`;
+                    // //-1
+                    // if(element.PLV1=="002"){
+                    //     $("#row002").append(row);
+                    // }
+                    // if(element.PLV1=="005"){
+                    //     $("#row005").append(row);
+                    // }
+                    //-2
+                    switch (element.PLV1) {
+                        case "001":
+                            $("#row001").append(row);
+                            break;
+                        case "002":
+                            // $("#row002").append(row);
+                            switch (element.PLV2) {
+                                case "01":
+                                    $("#row00201").append(row);
+                                    break;
+                                case "02":
+                                    $("#row00202").append(row);
+                                    break;
+                                case "03":
+                                    $("#row00203").append(row);
+                                    break;
+                                case "04":
+                                    $("#row00204").append(row);
+                                    break;
+                                case "05":
+                                    $("#row00205").append(row);
+                                    break;
+                                case "06":
+                                    $("#row00206").append(row);
+                                    break;
+                                case "07":
+                                    $("#row00207").append(row);
+                                    break;
+                                case "08":
+                                    $("#row00208").append(row);
+                                    break;
+                                case "09":
+                                    $("#row00209").append(row);
+                                    break;
+                                case "10":
+                                    $("#row00210").append(row);
+                                    break;
+                                default:
+                                    $("#row002").append(row);
+                                    break;
+                            }
+                            break;
+                        case "003":
+                            // $("#row003").append(row);
+                            switch (element.PLV2) {
+                                case "01":
+                                    $("#row00301").append(row);
+                                    break;
+                                case "02":
+                                    $("#row00302").append(row);
+                                    break;
+                                case "03":
+                                    $("#row00303").append(row);
+                                    break;
+                                case "04":
+                                    $("#row00304").append(row);
+                                    break;
+                                case "05":
+                                    $("#row00305").append(row);
+                                    break;
+                                default:
+                                    $("#row003").append(row);
+                                    break;
+                            }
+                            break;
+                        case "004":
+                            // $("#row004").append(row);
+                            switch (element.PLV2) {
+                                case "01":
+                                    $("#row00401").append(row);
+                                    break;
+                                case "02":
+                                    $("#row00402").append(row);
+                                    break;
+                                case "03":
+                                    $("#row00403").append(row);
+                                    break;
+                                case "04":
+                                    $("#row00404").append(row);
+                                    break;
+                                case "05":
+                                    $("#row00405").append(row);
+                                    break;
+                                default:
+                                    $("#row004").append(row);
+                                    break;
+                            }
+                            break;
+                        case "005":
+                            $("#row005").append(row);
+                            break;
+                        case "006":
+                            $("#row006").append(row);
+                            break;
+                        case "007":
+                            $("#row007").append(row);
+                            break;
+                        case "008":
+                            $("#row008").append(row);
+                            break;
+                        case "009":
+                            $("#row009").append(row);
+                            break;
+                        case "010":
+                            $("#row010").append(row);
+                            break;
+                        default:
+                            break;
+                    }
+                });
+
+                // //-1
+                // console.log(data[0]);
+                // console.log(data[0].seq);
+                // console.log(data[0].donateNm);
+                // console.log(data[0].donateCode);
+                // console.log(data[0].donateShortNm);
+                // console.log(data[0].donateBan);
+                // console.log(data[0].hsnNm);
+                // //-2
+                // data.forEach(element => {
+                //     row=`
+                //     <tr>
+                //         <td>${element.seq}</td>
+                //         <td>${element.donateNm}</td>
+                //         <td>${element.donateCode}</td>
+                //         <td>${element.donateShortNm}</td>
+                //         <td>${element.donateBan}</td>
+                //         <td>${element.hsnNm}</td>
+                //     </tr>`;
+                //     $("#row").append(row);
+                // });
+            },
+            //-1
+            // error: function(e){
+            //     console.log("失敗");
+            //     console.log(e);
+            // }
+            //-2
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

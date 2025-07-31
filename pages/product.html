@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品列表</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="../CSS/index.css"> -->
+    <style>
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            /* | `object-fit` 值 | 說明                               |
+            | -------------- | -------------------------------- |
+            | `fill`         | 拉伸圖片填滿容器，**可能變形**                |
+            | `contain`      | 縮放圖片讓整張都可見，**可能留白**              |
+            | `cover`        | 填滿容器但**維持比例**，**可能裁切**（最常用於卡片設計） |
+            | `none`         | 不縮放，圖片依原尺寸顯示                     |
+            | `scale-down`   | 根據 `none` 和 `contain` 選擇較小的尺寸顯示  | */
+        }
+        /* 可點擊、放大版 
+        | 效果                | 技術重點                                                                   |
+        | ----------------- | ---------------------------------------------------------------------- |
+        | **圖片 hover 放大**   | `.product-img-hover` 加 `transform: scale()`                            |
+        | **卡片整體 hover 放大** | `.hover-card:hover` 放大整張卡片                                             |
+        | **加邊框與陰影**        | 使用 `border` 與 `box-shadow`                                             |
+        | **整卡可點擊**         | 外層用 `<a>` 包整張 `.card`，加上 `.text-decoration-none` 與 `.text-dark` 保持卡片樣式 | */
+        /* 卡片邊框與 hover 效果 */
+        .card.hover-card {
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative; /* 添加 position: relative; 确保 z-index 生效 */
+        }
+        .card.hover-card:hover {
+            transform: scale(1.3); /* 放大卡片 */
+                    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); */
+            box-shadow: 0 8px 20px rgba(193, 74, 240, 0.4); /* 卡片阴影效果 */
+            z-index: 10; /* 提高 z-index，确保放大的卡片显示在其他卡片之上 */
+        }
+        /* hover 圖片稍微放大 */
+        .product-img-hover {
+            transition: transform 0.3s ease;
+        }
+        .card.hover-card:hover .product-img-hover {
+            transform: scale(1.05);
+        }
+        .spanColorRed {
+            color: red;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body class="p-4">
+<center>
+    <!-- 麵包屑 -->
+    <nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html" target="_parent">首頁</a></li>
+            <li class="breadcrumb-item active" aria-current="page">產品列表</li>
+        </ol>
+    </nav>
+    <!-- class="my-3" => y：垂直方向（top + bottom） ； m：margin ； p 代表：padding ； 上-t,下-b,左-s,右-e -->
+    <!-- <h1 class="my-3">產品資訊</h1> -->
+    <div class="container" style="width: 80%;">
+        <div class="row mb-4" id="productContainer"></div>
+        <!-- 頁碼:分頁元件 -->
+        <nav>
+            <ul class="pagination justify-content-center" id="pagination"></ul>
+        </nav>
+    </div>
+</center>
+<script>
+    // 所有產品資料
+    const products = [
+        { title: "產品A", image: "../images/t01.png", link: "../pages/product_A.html", minute: 5, price: 1000, briefDescription: "強度很低但是很輕的白色樹木。" },
+        { title: "產品B", image: "../images/t02.png", link: "../pages/product_B.html", minute: 7, price: 2000, briefDescription: "耐久性非常低的淡黃色樹木。" },
+        { title: "產品C", image: "../images/t03.png", link: "../pages/product_C.html", minute: 6, price: 3000, briefDescription: "耐久性高而且很粗的淡黃色樹木。" },
+        { title: "產品D", image: "../images/t04.png", link: "../pages/product_D.html", minute: 3, price: 4000, briefDescription: "強度很高的白色樹木。" },
+        { title: "產品E", image: "../images/t05.png", link: "../pages/product_E.html", minute: 7, price: 5000, briefDescription: "木紋很細且很有光澤的淡色樹木。" },
+        { title: "產品F", image: "../images/t06.png", link: "../pages/product_F.html", minute: 6, price: 6000, briefDescription: "又重又堅固，耐久性很高的深色樹木。" },
+        { title: "產品G", image: "../images/t07.png", link: "../pages/product_G.html", minute: 3, price: 7000, briefDescription: "易加工、樹身美麗的淡色樹木。" },
+        { title: "產品H", image: "../images/t08.png", link: "../pages/product_H.html", minute: 5, price: 8000, briefDescription: "木紋很粗但很柔軟的深色樹木。" }
+    ];
+
+    const perPage = 2;   // 每頁顯示 2 個產品
+    let currentPage = 1; // 當前頁數
+
+    // 此函數負責顯示當前頁數的產品資料。
+    function theProducts(page) {
+        const container = document.getElementById('productContainer');
+        container.innerHTML = ''; // 清空容器內容
+
+        const start = (page - 1) * perPage; // 計算當前頁開始的產品索引
+        const end = start + perPage; // 計算當前頁結束的產品索引
+        const currentItems = products.slice(start, end); // 取得當前頁的產品
+
+        currentItems.forEach(p => {
+            const col = document.createElement('div');
+            col.className = 'col-6 mb-2';
+            col.innerHTML = `
+                <a href="${p.link || '#'}" class="text-decoration-none text-dark">
+                <div class="card hover-card">
+                    <div class="card-header">
+                        <h5 class="card-title">${p.title}</h5>
+                    </div>
+                    <img src="${p.image}" class="card-img-top product-img product-img-hover" alt="${p.title}">
+                    <div class="card-body">
+                        <p class="card-text">${p.briefDescription}</p>
+                        <p class="card-text"><small class="text-muted">最近更新：${p.minute} 分鐘前</small></p>
+                    </div>
+                    <div class="card-footer">
+                        <del>原價:$${p.price}</del><br>
+                        <span class="spanColorRed">特價:$${p.price*0.6}</span>
+                    </div>
+                </div>
+                </a>
+            `;
+            container.appendChild(col); // 將產品卡片加入容器
+        });
+    }
+
+    // 此函數負責分頁按鈕，讓用戶能夠翻頁。 （如果在第一頁或最後一頁，則禁用對應的按鈕）
+    function thePagination() {
+        const pageCount = Math.ceil(products.length / perPage); // 計算總頁數
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = ''; // 清空分頁容器
+
+        // 上一頁
+        const prev = document.createElement('li');
+        prev.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+        prev.innerHTML = `<a class="page-link" href="#">Previous</a>`;
+        prev.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                theProducts(currentPage);
+                thePagination();
+            }
+        });
+        pagination.appendChild(prev);
+
+        // 頁碼按鈕
+        for (let i = 1; i <= pageCount; i++) {
+            const li = document.createElement('li');
+            li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener('click', e => {
+                e.preventDefault();
+                currentPage = i;
+                theProducts(currentPage);
+                thePagination();
+            });
+            pagination.appendChild(li);
+        }
+
+        // 下一頁
+        const next = document.createElement('li');
+        next.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
+        next.innerHTML = `<a class="page-link" href="#">Next</a>`;
+        next.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage < pageCount) {
+                currentPage++;
+                theProducts(currentPage);
+                thePagination();
+            }
+        });
+        pagination.appendChild(next);
+    }
+
+    // 初始
+    theProducts(currentPage); // 顯示當前頁的產品
+    thePagination();           // 顯示分頁按鈕
+</script>
+</body>
+</html>

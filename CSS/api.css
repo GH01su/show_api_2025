@@ -1,0 +1,51 @@
+th {
+    background-color: lightskyblue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+td {
+    background-color: lightpink;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.btnA {
+    width: 115px;
+    height: 40px;
+    margin: 5px 1px 0px;
+    padding: 5px;
+    background-color: lightsalmon;
+    border-radius: 25%; /* 圓角設定 */
+    /* solid：實線、dashed：虛線、dotted：點線、double：雙線
+    、none：無邊框，隱藏邊框（默認值）
+    、hidden：隱藏邊框，但它比 none 更常用於表格元素，表示邊框被隱藏但會佔用空間。 */
+    border: 2px double #0cd; /* 邊框寬度、樣式、顏色一起設置 */
+    cursor: pointer; /* 手形指標 */
+    /* 鼠標樣式：
+    default: 默認的鼠標指標，通常是箭頭。
+    pointer: 手形指標，通常用於可點擊的鏈接或按鈕。
+    crosshair: 十字形指標，常用於選擇或繪圖工具中。
+    move: 移動指標，常用於可拖拽的元素。
+    text: 文本指標，通常用於文本區域或可編輯的文本框中，顯示為 I 形光標。
+    wait: 等待指標，通常顯示為一個沙漏或旋轉的圓圈，表示正在加載或等待。
+    help: 幫助指標，通常顯示為問號，表示需要幫助或有可用的幫助信息。
+    not-allowed: 禁用指標，通常顯示為一個圓圈上有一條斜線，表示該操作不可執行。
+    progress: 進度指標，通常顯示為旋轉的圓圈或進度條，表示操作正在進行中。 */
+}
+.btnB {
+    width: 100px;
+    margin: 1px 5px;
+    padding: 5px 10px;
+    background-color: lightyellow;
+    border-radius: 15px; /* 圓角設定 */
+    border: 2px dashed rgb(228, 138, 255); /* 邊框寬度、樣式、顏色一起設置 */
+    cursor: pointer; /* 手形指標 */
+}
+.tdA {
+    background-color: lightseagreen;
+    color: white;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

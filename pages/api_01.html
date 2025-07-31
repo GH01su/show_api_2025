@@ -1,0 +1,118 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        th, td {
+            padding: 3px 10px;
+        }
+    </style>
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=LC7YWlenhLuP<br><hr>
+<table border=1>
+    <caption><h1>郵遞區號</h1></caption>
+    <colgroup>
+        <col span="1" >
+        <col span="1" style="background-color: lightblue;">
+        <col span="1" >
+        <col span="1" style="background-color: lightgreen;">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>縣市名稱</th>
+            <th>鄉鎮數量</th>
+            <th>鄉鎮名稱</th>
+            <th>鄉鎮郵遞區號</th>
+        </tr>
+    </thead>
+    <tbody id="row"></tbody>
+</table>
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            // url: 'https://data.tainan.gov.tw/DataSet/Detail/a30231c3-d672-4816-8120-c517ea796130',
+            url: 'https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/CityCountyData.json',
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                //-1
+                console.log(data);
+                console.log(data.length);
+                console.log(data[0].CityName);
+                console.log(data[0].AreaList.length);
+                //-2
+                data.forEach(element => {
+                    row=`
+                    <tr>
+                        <td>${element.CityName}</td>
+                        <td>${element.AreaList.length}</td>
+                        <td colspan="2"></td>
+                    </tr>`;
+                    $("#row").append(row);
+                    element.AreaList.forEach(element2 => {
+                        row=`
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>${element2.AreaName}</td>
+                            <td>${element2.ZipCode}</td>
+                        </tr>`;
+                        $("#row").append(row);
+                    });
+                });
+
+                // //-1
+                // console.log(data[0]);
+                // console.log(data[0].seq);
+                // console.log(data[0].donateNm);
+                // console.log(data[0].donateCode);
+                // console.log(data[0].donateShortNm);
+                // console.log(data[0].donateBan);
+                // console.log(data[0].hsnNm);
+                // //-2
+                // data.forEach(element => {
+                //     row=`
+                //     <tr>
+                //         <td>${element.seq}</td>
+                //         <td>${element.donateNm}</td>
+                //         <td>${element.donateCode}</td>
+                //         <td>${element.donateShortNm}</td>
+                //         <td>${element.donateBan}</td>
+                //         <td>${element.hsnNm}</td>
+                //     </tr>`;
+                //     $("#row").append(row);
+                // });
+            },
+            //-1
+            // error: function(e){
+            //     console.log("失敗");
+            //     console.log(e);
+            // }
+            //-2
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

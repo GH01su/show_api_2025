@@ -1,0 +1,85 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../CSS/api.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx?IsTransData=1&UnitId=192<br><hr>
+<table border=1 width="95%">
+    <caption><h1>全國休閒農業區旅遊資訊</h1></caption>
+    <colgroup>
+        <col span="1" width="5%">
+        <col span="4" width="20%">
+        <col span="1" width="15%">
+    </colgroup>
+    <tr>
+        <th rowspan="2">縣市</th>
+        <th class="tdA">鄉鎮</th>
+        <th class="tdA">名稱</th>
+        <th class="tdA">聯絡電話</th>
+        <th class="tdA">地址</th>
+        <th rowspan="2">圖片</th>
+    </tr>
+    <tr>
+        <th colspan="4">園區介紹</th>
+    </tr>
+     <tbody id="row"></tbody>
+</table>
+
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx?IsTransData=1&UnitId=192',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                // //-1
+                // console.log(theData);
+                // console.log(theData[0]);
+                // console.log(theData.length);
+                //-2
+                theData.forEach(element => {
+                    // console.log(element);
+                    row=`
+                    <tr>
+                        <td rowspan="2">${element.County}</td>
+                        <td class="tdA">${element.Town}</td>
+                        <td class="tdA">${element.Name}</td>
+                        <td class="tdA">${element.Tel}</td>
+                        <td class="tdA">${element.Address}</td>
+                        <td rowspan="2"><img src="${element.Photolink}" width="100%" height="100%"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">${element.Introduction}</td>
+                    </tr>`;
+                    $("#row").append(row);
+                });
+            },
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

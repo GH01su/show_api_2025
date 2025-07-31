@@ -1,0 +1,109 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../CSS/api.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<center>
+API來源 : https://data.moa.gov.tw/Service/OpenData/FromM/AquaticTransData.aspx?IsTransData=1&UnitId=039<br><hr>
+<table border=1 width="95%">
+    <caption><h1>漁產品交易行情-品種代碼</h1></caption>
+    <tr>
+        <th>交易日期</th>
+        <th>品種代碼</th>
+        <th>魚貨名稱</th>
+        <th>市場名稱</th>
+        <th>上價</th>
+        <th>中價</th>
+        <th>下價</th>
+        <th>交易量</th>
+        <th>平均價</th>
+    </tr>
+     <tbody id="row1011"><tr><td colspan="9" class="tdA">品種代碼 - 1011 - 吳郭魚 - <span id="count1011"></span> 筆</td></tr></tbody>
+     <tbody id="row1141"><tr><td colspan="9" class="tdA">品種代碼 - 1141 - 田蛙 - <span id="count1141"></span> 筆</td></tr></tbody>
+     <tbody id="row4015"><tr><td colspan="9" class="tdA">品種代碼 - 4015 - 白蝦 - <span id="count4015"></span> 筆</td></tr></tbody>
+     <tbody id="row"></tbody>
+</table>
+
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            // url: 'https://data.kcg.gov.tw/Json/Get/051bd077-c051-4321-a88b-e9d513ef3508',
+            // url: 'https://data.kcg.gov.tw/Json/Get/fcbb97e0-9dae-402b-8c75-7693ca7d09c5',
+            // url: 'https://data.kcg.gov.tw/Json/Get/ccfe2d16-b137-425c-914d-6c199c5bc0c3',
+            url: 'https://data.moa.gov.tw/Service/OpenData/FromM/AquaticTransData.aspx?IsTransData=1&UnitId=039',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                // let countTaipei=0,countTaichung=0,countTainan=0;
+                let count1011=0,count1141=0,count4015=0;
+                //-1
+                console.log(theData);
+                console.log(theData.length);
+                //-2
+                theData.forEach(element => {
+                    // console.log(element);
+                    row=`
+                    <tr>
+                        <td>${element.交易日期}</td>
+                        <td>${element.品種代碼}</td>
+                        <td>${element.魚貨名稱}</td>
+                        <td>${element.市場名稱}</td>
+                        <td>${element.上價}</td>
+                        <td>${element.中價}</td>
+                        <td>${element.下價}</td>
+                        <td>${element.交易量}</td>
+                        <td>${element.平均價}</td>
+                    </tr>`;
+                    // $("#row").append(row);
+                    switch (element.魚貨名稱) {
+                        case '吳郭魚':
+                            $("#row1011").append(row);
+                            count1011++;
+                            break;
+                        case '田蛙':
+                            $("#row1141").append(row);
+                            count1141++;
+                            break;
+                        case '白蝦':
+                            $("#row4015").append(row);
+                            count4015++;
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                console.log(count1011);
+                console.log(count1141);
+                console.log(count4015);
+                $("#count1011").append(count1011);
+                $("#count1141").append(count1141);
+                $("#count4015").append(count4015);
+            },
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>

@@ -1,0 +1,270 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/api.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<center>
+API來源 : https://soa.tainan.gov.tw/Api/Service/Get/b7d74d21-a3f7-4629-85d3-6a300107ce8a<br><hr>
+<table border=1 width="95%" id="tableTbody">
+    <caption><h1>臺南市免費無線網路熱點列表_無線上網熱點列表</h1></caption>
+    <colgroup>
+        <col span="1" width="14%">
+        <col span="1" width="25%">
+        <col span="4" width="9%">
+        <col span="1" width="25%">
+    </colgroup>
+    <tr>
+        <!-- <th>Seq</th>
+        <th>熱點類別</th>
+        <th>熱點名稱</th>
+        <th>熱點分類</th>
+        <th>建置年度</th>
+        <th>行政區</th>
+        <th>行政里</th>
+        <th>地址</th>
+        <th>熱點緯度</th>
+        <th>熱點經度</th> -->
+        <th>熱點類別</th>
+        <th>熱點名稱</th>
+        <th>熱點分類</th>
+        <th>建置年度</th>
+        <th>行政區</th>
+        <th>行政里</th>
+        <th>地址</th>
+    </tr>
+	<!-- <tbody id="row"><tr><td colspan="7" class="tdA">區</td></tr></tbody> -->
+</table>
+
+</body>
+</html>
+<!-- <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: ,
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log("失敗");
+                console.log(e);
+            }
+        });
+    });
+</script> -->
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: 'https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/CityCountyData.json',
+            type: 'get',
+            dataType: "json",
+            success: function(data){
+                // //-1
+                // console.log(data);
+                // console.log(data.length);
+                // console.log(data[16].CityName);
+                // console.log(data[16].AreaList.length);
+                // console.log(data[16].AreaList[0].ZipCode);
+                // console.log(data[16].AreaList[0].AreaName);
+                //-2
+                tableData=data[16].AreaList;
+                tableData.forEach(element => {
+                    // console.log(element);
+                    tbodyId="row"+element.ZipCode;
+                    // console.log(tbodyId);
+                    tableTbody=`<tbody id="${tbodyId}"><tr><td colspan="7" class="tdA">${element.AreaName}</td></tr></tbody>`;
+                    $("#tableTbody").append(tableTbody);
+                });
+            }
+        });
+        $.ajax({
+            url: 'https://soa.tainan.gov.tw/Api/Service/Get/b7d74d21-a3f7-4629-85d3-6a300107ce8a',
+            type: 'get',
+            dataType: "json",
+            success: function(theData){
+                //-1
+                console.log(theData);
+                console.log(theData.data.length);
+                //-2
+                theData.data.forEach(element => {
+                    // row=`
+                    // <tr>
+                    //     <td>${element.Seq}</td>
+                    //     <td>${element.熱點類別}</td>
+                    //     <td>${element.熱點名稱}</td>
+                    //     <td>${element.熱點分類}</td>
+                    //     <td>${element.建置年度}</td>
+                    //     <td>${element.行政區}</td>
+                    //     <td>${element.行政里}</td>
+                    //     <td>${element.地址}</td>
+                    //     <td>${element.熱點緯度}</td>
+                    //     <td>${element.熱點經度}</td>
+                    // </tr>`;
+                    row=`
+                    <tr>
+                        <td>${element.熱點類別}</td>
+                        <td>${element.熱點名稱}</td>
+                        <td>${element.熱點分類}</td>
+                        <td>${element.建置年度}</td>
+                        <td>${element.行政區}</td>
+                        <td>${element.行政里}</td>
+                        <td>${element.地址}</td>
+                    </tr>`;
+                    // $("#row").append(row);
+                    switch (element.行政區) {
+                        case "中西區":
+                            $("#row700").append(row);
+                            break;
+                        case "東區":
+                            $("#row701").append(row);
+                            break;
+                        case "南區":
+                            $("#row702").append(row);
+                            break;
+                        case "北區":
+                            $("#row704").append(row);
+                            break;
+                        case "安平區":
+                            $("#row708").append(row);
+                            break;
+                        case "安南區":
+                            $("#row709").append(row);
+                            break;
+                        case "永康區":
+                            $("#row710").append(row);
+                            break;
+                        case "歸仁區":
+                            $("#row711").append(row);
+                            break;
+                        case "新化區":
+                            $("#row712").append(row);
+                            break;
+                        case "左鎮區":
+                            $("#row713").append(row);
+                            break;
+                        case "玉井區":
+                            $("#row714").append(row);
+                            break;
+                        case "楠西區":
+                            $("#row715").append(row);
+                            break;
+                        case "南化區":
+                            $("#row716").append(row);
+                            break;
+                        case "仁德區":
+                            $("#row717").append(row);
+                            break;
+                        case "關廟區":
+                            $("#row718").append(row);
+                            break;
+                        case "龍崎區":
+                            $("#row719").append(row);
+                            break;
+                        case "官田區":
+                            $("#row720").append(row);
+                            break;
+                        case "麻豆區":
+                            $("#row721").append(row);
+                            break;
+                        case "佳里區":
+                            $("#row722").append(row);
+                            break;
+                        case "西港區":
+                            $("#row723").append(row);
+                            break;
+                        case "七股區":
+                            $("#row724").append(row);
+                            break;
+                        case "將軍區":
+                            $("#row725").append(row);
+                            break;
+                        case "學甲區":
+                            $("#row726").append(row);
+                            break;
+                        case "北門區":
+                            $("#row727").append(row);
+                            break;
+                        case "新營區":
+                            $("#row730").append(row);
+                            break;
+                        case "後壁區":
+                            $("#row731").append(row);
+                            break;
+                        case "白河區":
+                            $("#row732").append(row);
+                            break;
+                        case "東山區":
+                            $("#row733").append(row);
+                            break;
+                        case "六甲區":
+                            $("#row734").append(row);
+                            break;
+                        case "下營區":
+                            $("#row735").append(row);
+                            break;
+                        case "柳營區":
+                            $("#row736").append(row);
+                            break;
+                        case "鹽水區":
+                            $("#row737").append(row);
+                            break;
+                        case "善化區":
+                            $("#row741").append(row);
+                            break;
+                        case "大內區":
+                            $("#row742").append(row);
+                            break;
+                        case "山上區":
+                            $("#row743").append(row);
+                            break;
+                        case "新市區":
+                            $("#row744").append(row);
+                            break;
+                        case "安定區":
+                            $("#row745").append(row);
+                            break;
+                        // default:
+                        //     $("#row").append(row);
+                        //     break;
+                    }
+                });
+
+                // //-1
+                // console.log(data[0]);
+                // console.log(data[0].seq);
+                // console.log(data[0].donateNm);
+                // console.log(data[0].donateCode);
+                // console.log(data[0].donateShortNm);
+                // console.log(data[0].donateBan);
+                // console.log(data[0].hsnNm);
+                // //-2
+                // data.forEach(element => {
+                //     row=`
+                //     <tr>
+                //         <td>${element.seq}</td>
+                //         <td>${element.donateNm}</td>
+                //         <td>${element.donateCode}</td>
+                //         <td>${element.donateShortNm}</td>
+                //         <td>${element.donateBan}</td>
+                //         <td>${element.hsnNm}</td>
+                //     </tr>`;
+                //     $("#row").append(row);
+                // });
+            },
+            //-1
+            // error: function(e){
+            //     console.log("失敗");
+            //     console.log(e);
+            // }
+            //-2
+            error: function(xhr, status, error){ 
+                console.log("失敗");
+                console.log("Status: " + status);       // 顯示狀態
+                console.log("Error: " + error);         // 顯示錯誤訊息
+                console.log("Response Text: " + xhr.responseText);  // 顯示回應的錯誤內容
+            }
+        });
+    });
+</script>
